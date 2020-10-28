@@ -2,8 +2,14 @@ package com.example.helloworld;
 
 import com.example.helloworld.entity.priklad1.Dog;
 import com.example.helloworld.entity.priklad1.Person;
+import com.example.helloworld.entity.priklad2.Brand;
+import com.example.helloworld.entity.priklad2.Employee;
+import com.example.helloworld.entity.priklad2.Phone;
 import com.example.helloworld.repository.priklad1.DogRepository;
 import com.example.helloworld.repository.priklad1.PersonRepository;
+import com.example.helloworld.repository.priklad2.BrandRepository;
+import com.example.helloworld.repository.priklad2.EmployeeRepository;
+import com.example.helloworld.repository.priklad2.PhoneRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +33,15 @@ public class SpringDataRestHelloWorldApplication {
 
     @Autowired
     private DogRepository dogRepository;
+
+    @Autowired
+    private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private BrandRepository brandRepository;
+
+    @Autowired
+    private PhoneRepository phoneRepository;
 
     @Transactional
     @EventListener(ApplicationReadyEvent.class)
@@ -116,6 +131,43 @@ public class SpringDataRestHelloWorldApplication {
             dog.setName(dogName);
             dog.setWeight(weights[new Random().nextInt(10)]);
             dogRepository.save(dog);
+        }
+
+        /*
+         * PRIKLAD 2
+         */
+
+        Brand brandIphone = new Brand();
+        brandIphone.setName("iPhone");
+        brandIphone = brandRepository.save(brandIphone);
+
+        Brand brandAndroid = new Brand();
+        brandAndroid.setName("iPhone");
+        brandAndroid = brandRepository.save(brandAndroid);
+
+        {
+            Employee employee = new Employee();
+            employee.setName("Jirka");
+            employee = employeeRepository.save(employee);
+
+            Phone phone = new Phone();
+            phone.setBrand(brandIphone);
+            phone.setBrandName("iPhone");
+            phoneRepository.save(phone);
+
+            employee.setPhone(phone);
+        }
+        {
+            Employee employee = new Employee();
+            employee.setName("Michal");
+            employee = employeeRepository.save(employee);
+
+            Phone phone = new Phone();
+            phone.setBrand(brandAndroid);
+            phone.setBrandName("Android");
+            phoneRepository.save(phone);
+
+            employee.setPhone(phone);
         }
     }
 
