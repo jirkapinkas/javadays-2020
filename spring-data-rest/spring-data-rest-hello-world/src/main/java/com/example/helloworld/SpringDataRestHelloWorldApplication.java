@@ -5,11 +5,13 @@ import com.example.helloworld.entity.priklad1.Person;
 import com.example.helloworld.entity.priklad2.Brand;
 import com.example.helloworld.entity.priklad2.Employee;
 import com.example.helloworld.entity.priklad2.Phone;
+import com.example.helloworld.entity.priklad3.Car;
 import com.example.helloworld.repository.priklad1.DogRepository;
 import com.example.helloworld.repository.priklad1.PersonRepository;
 import com.example.helloworld.repository.priklad2.BrandRepository;
 import com.example.helloworld.repository.priklad2.EmployeeRepository;
 import com.example.helloworld.repository.priklad2.PhoneRepository;
+import com.example.helloworld.repository.priklad3.CarRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,9 +45,16 @@ public class SpringDataRestHelloWorldApplication {
     @Autowired
     private PhoneRepository phoneRepository;
 
+    @Autowired
+    private CarRepository carRepository;
+
     @Transactional
     @EventListener(ApplicationReadyEvent.class)
     public void initDb() {
+        /*
+         * PRIKLAD 1
+         */
+
         Person person = new Person();
         person.setName("Jirka");
         personRepository.save(person);
@@ -169,6 +178,33 @@ public class SpringDataRestHelloWorldApplication {
 
             employee.setPhone(phone);
         }
+
+        /*
+         * PRIKLAD 3
+         */
+
+        {
+            Car car = new Car();
+            car.setName("Tesla Model X");
+            car.setPrice(2.5);
+            carRepository.save(car);
+            car.setRange(507);
+        }
+        {
+            Car car = new Car();
+            car.setName("Tesla Model 3");
+            car.setPrice(1.2);
+            carRepository.save(car);
+            car.setRange(580);
+        }
+        {
+            Car car = new Car();
+            car.setName("Tesla Model S");
+            car.setPrice(2.3);
+            carRepository.save(car);
+            car.setRange(590);
+        }
+
     }
 
     public static void main(String[] args) {
