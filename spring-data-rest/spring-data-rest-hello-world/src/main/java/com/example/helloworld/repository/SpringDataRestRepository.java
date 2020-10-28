@@ -12,7 +12,6 @@ import org.springframework.data.querydsl.binding.QuerydslBindings;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.Repository;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.Optional;
@@ -105,8 +104,8 @@ public interface SpringDataRestRepository<T, ID> extends Repository<T, ID>, Quer
                 return Optional.of(booleanBuilder);
             }
         };
-        bindings.bind(Integer.class).all(integerBinding);
         bindings.bind(int.class).all(integerBinding);
+        bindings.bind(Integer.class).all(integerBinding);
 
         /*
          * Note: correct REST call is having in URL: "%25searchedText%25" instead of "%searchedText%"!!!!!
