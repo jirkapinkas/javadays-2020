@@ -26,4 +26,5 @@ Je zapotřebí přidat Data Source typu Prometheus, URL: http://prometheus:9090
 
 # Vypnutí:
 
-	docker-compose down
+	docker rm -v -f app prometheus grafana
+	docker network rm app_net

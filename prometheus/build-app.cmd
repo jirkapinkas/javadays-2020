@@ -1,6 +1,6 @@
 rem ************ build-app.cmd ************
-rem stop docker-compose
-docker-compose -f docker-compose-app.yml down
+
+docker rm -v -f app
 
 rem build app
 cd spring-boot-prometheus
