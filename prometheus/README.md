@@ -1,19 +1,29 @@
-Je zapotřebí mít nainstalované:
+# Je zapotřebí mít nainstalované:
 
 - Docker
 - Maven
 
-Spuštění:
+# Spuštění:
 
-build.cmd
+	build.cmd
 
-NEBO:
+# Aplikace:
 
-cd spring-boot-prometheus
-mvn clean package
-cd ..
-docker-compose up --build -d
+url: http://localhost:8080
+username / password: user / letmein
 
-Vypnutí:
+# Prometheus:
 
-docker-compose down
+url: http://localhost:9090
+
+# Grafana:
+
+url: http://localhost:3000
+username / password: admin / admin
+
+Je zapotřebí přidat Data Source typu Prometheus, URL: http://prometheus:9090
+
+
+# Vypnutí:
+
+	docker-compose down
