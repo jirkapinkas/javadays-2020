@@ -1,0 +1,22 @@
+global:
+  smtp_smarthost: 'TODO'
+  smtp_from: 'TODO'
+  smtp_auth_username: 'TODO'
+  smtp_auth_identity: 'TODO'
+  smtp_auth_password: 'TODO'
+route:
+  group_by: ['alertname', 'cluster', 'service']
+  group_wait: 0s
+  group_interval: 1m
+  repeat_interval: 1m
+  receiver: team-X-mails
+  routes:
+    - match_re:
+        service: ^(foo1|foo2|baz)$
+      receiver: team-X-mails
+receivers:
+  - name: 'team-X-mails'
+    email_configs:
+      - to: 'TODO'
+        tls_config:
+          insecure_skip_verify: true

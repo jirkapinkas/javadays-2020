@@ -1,0 +1,30 @@
+global:
+  scrape_interval: 10s
+  evaluation_interval: 30s
+  external_labels:
+    monitor: 'codelab-monitor'
+
+scrape_configs:
+#  - job_name: 'failing'
+#    metrics_path: '/actuator/prometheus'
+#    scrape_interval: 5s
+#    static_configs:
+#      - targets: ['failingljsdlfkjskldfjs.com']
+
+  - job_name: 'app'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['app:8080']
+    basic_auth:
+      username: user
+      password: letmein
+    # scheme: https
+
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets: ['alertmanager:9093']
+
+# rule_files:
+#   - "/etc/prometheus/*.rules"

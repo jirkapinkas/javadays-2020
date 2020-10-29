@@ -1,0 +1,32 @@
+version: '3'
+services:
+  app:
+    build: ./spring-boot-prometheus
+    ports:
+    - "8080:8080"
+  prometheus:
+    image:
+      prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./volumes/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./volumes/first.rules:/etc/prometheus/first.rules
+  # alertmanager:
+  #   image:
+  #     prom/alertmanager
+  #   volumes:
+  #     - ./alertmanager.yml:/prometheus/alertmanager.yml
+  #   command:
+  #     - '--config.file=/prometheus/alertmanager.yml'
+  #   ports:
+  #     - "9093:9093"
+  #   depends_on: 
+  #     - prometheus
+  grafana:
+    image:
+      grafana/grafana
+    ports:
+      - "3000:3000"
+    depends_on: 
+      - prometheus
