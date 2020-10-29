@@ -4,7 +4,7 @@ docker rm -v -f app
 
 rem build app
 cd spring-boot-prometheus
-call mvn clean package -DskipTests
+call mvn clean package
 
 cd ..
 
