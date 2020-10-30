@@ -26,7 +26,8 @@ url: http://localhost:3000
 username / password: admin / admin
 Poznámka: Při prvním přihlášení se doporučí změna admin hesla, to je možné ignorovat
 
-Je zapotřebí přidat Data Source typu Prometheus, URL: http://prometheus:9090
+V souboru volumes/datasource.yml je konfigurace Prometheus DataSource, 
+díky čemuž není nutné provádět tuto konfiguraci ručně v Grafaně.
 
 # Vypnutí:
 
