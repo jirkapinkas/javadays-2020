@@ -7,6 +7,10 @@
 
 	build.cmd
 
+# Rebuild aplikace:
+
+	rebuild-app.cmd
+
 # Aplikace:
 
 url: http://localhost:8080
@@ -20,9 +24,9 @@ url: http://localhost:9090
 
 url: http://localhost:3000
 username / password: admin / admin
+Poznámka: Při prvním přihlášení se doporučí změna admin hesla, to je možné ignorovat
 
 Je zapotřebí přidat Data Source typu Prometheus, URL: http://prometheus:9090
-
 
 # Vypnutí:
 
