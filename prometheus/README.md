@@ -7,7 +7,7 @@
 
 	build.cmd
 
-# Rebuild aplikace:
+# Rebuild aplikace (při změně konfigurace / kódu):
 
 	rebuild-app.cmd
 
