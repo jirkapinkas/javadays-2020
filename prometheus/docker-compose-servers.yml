@@ -15,7 +15,7 @@ services:
 #    image:
 #      prom/alertmanager
 #    volumes:
-#      - ./alertmanager.yml:/prometheus/alertmanager.yml
+#      - ./volumes/alertmanager.yml:/prometheus/alertmanager.yml
 #    command:
 #      - '--config.file=/prometheus/alertmanager.yml'
 #    ports:
