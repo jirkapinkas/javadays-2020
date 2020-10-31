@@ -1,6 +1,5 @@
 package com.example.springbootprometheus;
 
-import com.example.springbootprometheus.micrometer.CustomMeterBinder;
 import io.github.mweirauch.micrometer.jvm.extras.ProcessMemoryMetrics;
 import io.github.mweirauch.micrometer.jvm.extras.ProcessThreadMetrics;
 import io.micrometer.core.instrument.binder.MeterBinder;
@@ -21,11 +20,6 @@ public class SpringBootPrometheusApplication {
     @Bean
     public MeterBinder processThreadMetrics() {
         return new ProcessThreadMetrics();
-    }
-
-    @Bean
-    public CustomMeterBinder temperatureMeterBinder() {
-        return new CustomMeterBinder();
     }
 
     public static void main(String[] args) {
