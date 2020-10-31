@@ -12,8 +12,8 @@ public class CustomMeterBinder implements MeterBinder {
 
     @Override
     public void bindTo(MeterRegistry meterRegistry) {
-        Gauge.builder("custom_stuff", this, value -> value.getCustomValue())
-                .description("Just Regular Custom Stuff")
+        Gauge.builder("custom_gauge", this, value -> value.getCustomValue())
+                .description("Custom Gauge")
                 .register(meterRegistry);
     }
 
