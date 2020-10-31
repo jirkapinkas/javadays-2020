@@ -23,8 +23,8 @@ url: http://localhost:9090
 # Grafana:
 
 url: http://localhost:3000
-username / password: admin / admin
-Poznámka: Při prvním přihlášení se doporučí změna admin hesla, to je možné ignorovat
+username / password: admin / password
+Poznámka: V souboru docker-compose-servers.yml je definováno toto uživ. jméno a heslo.
 
 V souboru volumes/datasource.yml je konfigurace Prometheus DataSource, 
 díky čemuž není nutné provádět tuto konfiguraci ručně v Grafaně.
