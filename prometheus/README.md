@@ -5,6 +5,9 @@
 
 # Spuštění:
 
+Pozor! Nejprve se smáznou a pak se vytvoří kontejnery s názvy: app, prometheus, grafana!
+Pokud aktuálně máte Docker container s nějakým z těchto názvů, pak bude smazán!!!
+
 	build.cmd
 
 # Rebuild aplikace (při změně konfigurace / kódu):
